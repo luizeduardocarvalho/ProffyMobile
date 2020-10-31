@@ -74,31 +74,6 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher, favourited }) => {
       </View>
 
       <Text style={styles.bio}>{teacher.bio}</Text>
-
-      <View style={styles.footer}>
-        <Text style={styles.price}>
-          Preço/hora {'   '}
-          <Text style={styles.priceValue}>R$ {teacher.cost}</Text>
-        </Text>
-
-        <View style={styles.buttonsContainer}>
-          <RectButton
-            onPress={handleToggleFavourited}
-            style={[
-              styles.favouriteButton,
-              isFavourited ? styles.favourited : {},
-            ]}
-          >
-            { isFavourited 
-              ?  <Image source={unfavouriteIcon}/> 
-              : <Image source={heartOutlineIcon}/>}
-          </RectButton>
-          <RectButton onPress={handleLinkToWhatsapp} style={styles.contactButton}>
-            <Image source={whatsappIcon}/>
-            <Text style={styles.contactButtonText}>Entrar em contato</Text>
-          </RectButton>
-        </View>
-      </View>
     </View>
   );
 }

@@ -18,7 +18,26 @@ function TeacherList() {
   const [time, setTime] = useState('');
 
   const [favourites, setFavourites] = useState<number[]>([]);
-  const [teachers, setTeachers] = useState([]);
+  let teachers: Teacher[] = [
+    {
+      id: 1,
+      avatar: "",
+      bio: "https://www.adazing.com/wp-content/uploads/2019/02/open-book-clipart-03.png",
+      cost: 12,
+      name: "Eric Ries",
+      subject: "string",
+      whatsapp: "string",
+    },
+    {
+      id: 2,
+      avatar: "",
+      bio: "https://www.adazing.com/wp-content/uploads/2019/02/open-book-clipart-03.png",
+      cost: 12,
+      name: "Eric Ries",
+      subject: "string",
+      whatsapp: "string",
+    }
+  ];
 
   function loadFavourites() {
     AsyncStorage.getItem('favourites').then(response => {
@@ -44,7 +63,7 @@ function TeacherList() {
       }
     });
 
-    setTeachers(response.data);
+    //setTeachers(response.data);
     setIsFitlterVisible(false);
   }
 
@@ -93,8 +112,8 @@ function TeacherList() {
               </View>
             </View>
 
-            <RectButton 
-              onPress={handleFiltersSubmit} 
+            <RectButton
+              onPress={handleFiltersSubmit}
               style={styles.submitButton}
             >
               <Text style={styles.submitButtonText}>Filtrar</Text>
@@ -112,7 +131,7 @@ function TeacherList() {
       >
         {teachers.map((teacher: Teacher) => {
           return (
-            <TeacherItem 
+            <TeacherItem
               key={teacher.id}
               teacher={teacher}
               favourited={favourites.includes(teacher.id)}
